@@ -216,19 +216,10 @@ int main()
 
 	*/
 
-	Model character("models/character.fbx");
 	Model banner_procedural("models/banner_procedural.fbx");
+	/*
 
 	// Cubemap
-	/*vector<std::string> faces
-	{
-		"textures/cubemap/posx.jpg",
-		"textures/cubemap/negx.jpg",
-		"textures/cubemap/posy.jpg",
-		"textures/cubemap/negy.jpg",
-		"textures/cubemap/posz.jpg",
-		"textures/cubemap/negz.jpg"
-	};*/
 	vector<std::string> faces
 	{
 		"models/cubemap.fbm/posx.jpg",
@@ -247,6 +238,7 @@ int main()
 	fps *= 2;
 	int keys = (int)character.getNumFrames();
 	int animationCount = 0;
+	*/
 
 	// Dibujar en malla de alambre
 	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -267,7 +259,7 @@ int main()
 		tiempoPasadoFiesta += deltaTime;
 		//tiempo += deltaTime;
 		//tiempo += 0.01f;
-
+		/*
 		if (elapsedTime > 1.0f / fps) {
 			animationCount++;
 			if (animationCount > keys - 1) {
@@ -278,7 +270,7 @@ int main()
 			character.SetPose((float)animationCount, gBones);
 			elapsedTime = 0.0f;
 		}
-
+		*/
 		if (modoFiesta) {
 			if (tiempoPasadoFiesta > duracionLuces) {
 				colores_fiesta += 1;

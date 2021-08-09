@@ -31,7 +31,7 @@ void main()
 
     vec4 PosL = vec4(aPos, 1.0f);
     
-    PosL.y += 0.1f*PosL.x*sin(25.0f*(PosL.x));
+    PosL.y += 0.1f*PosL.x*sin(25.0f*(PosL.x+tiempo));
 
     gl_Position = projection * view * model * PosL;
 

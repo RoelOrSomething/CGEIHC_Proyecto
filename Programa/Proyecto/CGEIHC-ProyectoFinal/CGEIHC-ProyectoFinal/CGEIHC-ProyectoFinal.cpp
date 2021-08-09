@@ -163,7 +163,7 @@ int main()
 	// Carga la información del modelo
 		// Estaticos
 	Model cubemap("models/cubemap.fbx");
-	/*
+	
 	Model brillosos("models/brillosos.fbx");
 	//Model casa_piso("models/casa_piso.fbx");
 	Model brillosos_blancos("models/brillosos_blancos.fbx");
@@ -214,11 +214,6 @@ int main()
 	//Model sphere("models/materials/sphere.fbx");
 	//Model monkey("models/materials/monkey.fbx");
 
-	*/
-
-	Model banner_procedural("models/banner_procedural.fbx");
-	/*
-
 	// Cubemap
 	vector<std::string> faces
 	{
@@ -238,7 +233,7 @@ int main()
 	fps *= 2;
 	int keys = (int)character.getNumFrames();
 	int animationCount = 0;
-	*/
+	
 
 	// Dibujar en malla de alambre
 	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -257,9 +252,8 @@ int main()
 		lastFrame = currentFrame;
 		elapsedTime += deltaTime;
 		tiempoPasadoFiesta += deltaTime;
-		//tiempo += deltaTime;
-		//tiempo += 0.01f;
-		/*
+		tiempo += deltaTime;
+		
 		if (elapsedTime > 1.0f / fps) {
 			animationCount++;
 			if (animationCount > keys - 1) {
@@ -270,7 +264,7 @@ int main()
 			character.SetPose((float)animationCount, gBones);
 			elapsedTime = 0.0f;
 		}
-		*/
+		
 		if (modoFiesta) {
 			if (tiempoPasadoFiesta > duracionLuces) {
 				colores_fiesta += 1;
@@ -352,7 +346,7 @@ int main()
 			cubemap.Draw(cubemapShader);
 
 		}
-		/*
+		
 		glUseProgram(0);
 		{
 			ourShader.use();
@@ -658,7 +652,7 @@ int main()
 			
 
 		}
-		*/
+		
 		glUseProgram(0);
 		
 		// Shader de animacion Procedural
@@ -713,17 +707,17 @@ int main()
 			opaco.ambient = glm::vec4(0.8, 0.8, 0.8, 1.0);
 			opaco.diffuse = glm::vec4(0.5, 0.5, 0.5, 1.0);
 			opaco.specular = glm::vec4(0.1, 0.1, 0.1, 1.0);
-			basicPhongShader.setVec4("MaterialAmbientColor", opaco.ambient);
-			basicPhongShader.setVec4("MaterialDiffuseColor", opaco.diffuse);
-			basicPhongShader.setVec4("MaterialSpecularColor", opaco.specular);
-			basicPhongShader.setFloat("transparency", opaco.transparency);
+			phongProcedural.setVec4("MaterialAmbientColor", opaco.ambient);
+			phongProcedural.setVec4("MaterialDiffuseColor", opaco.diffuse);
+			phongProcedural.setVec4("MaterialSpecularColor", opaco.specular);
+			phongProcedural.setFloat("transparency", opaco.transparency);
 
-			//model = glm::translate(model, glm::vec3(1.547f, -2.602f, 0.0f));
-			//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-			//phongProcedural.setMat4("model", model);
+			model = glm::translate(model, glm::vec3(1.547f, -2.602f, 0.0f));
+			model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+			phongProcedural.setMat4("model", model);
 			banner_procedural.Draw(phongProcedural);
-			//model = glm::mat4(1.0f);
-			//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+			model = glm::mat4(1.0f);
+			model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
 		}
 		

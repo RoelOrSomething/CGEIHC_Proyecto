@@ -82,6 +82,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\..\..\..\..\bin\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -134,12 +135,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\include;$(ProjectDir)..\..\..\deps\glm;$(ProjectDir)..\..\..\deps\glfw\include;$(ProjectDir)..\..\..\deps\glad\include;$(ProjectDir)..\..\..\deps\assimp\include;$(ProjectDir)..\..\..\deps\irrKlang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\deps\glfw\lib\Release;$(ProjectDir)..\..\..\\deps\glad\lib\Release;ProjectDir)..\..\..\deps\assimp\lib\x64\Release;$(ProjectDir)..\..\..\deps\irrKlang\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glad.lib;glfw3.lib;assimp-vc142-mt.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
